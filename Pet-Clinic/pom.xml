@@ -47,4 +47,8 @@
             </plugin>
         </plugins>
     </build>
+
+    <scm>
+        <developerConnection>scm:git:https://github.com/suprit28/spring-boot-pet-clinic.git</developerConnection>
+    </scm>
 </project>
