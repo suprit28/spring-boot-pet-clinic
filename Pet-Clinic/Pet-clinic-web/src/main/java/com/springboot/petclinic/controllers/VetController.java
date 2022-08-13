@@ -6,15 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class VetListController {
+public class VetController {
 
     private final VetMapService vetMapService;
 
-    public VetListController(VetMapService vetMapService) {
+    public VetController(VetMapService vetMapService) {
         this.vetMapService = vetMapService;
     }
 
-    @RequestMapping({"/vets", "/vets/index"})
+    @RequestMapping({"/vets", "/vets/index", "/vets.html"})
     public String listVets(Model model){
         model.addAttribute("vets", vetMapService.findAll());
         return "vets/index";
