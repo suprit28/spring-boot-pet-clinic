@@ -1,6 +1,6 @@
 package com.springboot.petclinic.controllers;
 
-import com.springboot.petclinic.services.map.VetServiceMap;
+import com.springboot.petclinic.services.map.VetMapService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class VetListController {
 
-    private final VetServiceMap vetServiceMap;
+    private final VetMapService vetMapService;
 
-    public VetListController(VetServiceMap vetServiceMap) {
-        this.vetServiceMap = vetServiceMap;
+    public VetListController(VetMapService vetMapService) {
+        this.vetMapService = vetMapService;
     }
 
     @RequestMapping({"/vets", "/vets/index"})
     public String listVets(Model model){
-        model.addAttribute("vets",vetServiceMap.findAll());
+        model.addAttribute("vets", vetMapService.findAll());
         return "vets/index";
     }
 }

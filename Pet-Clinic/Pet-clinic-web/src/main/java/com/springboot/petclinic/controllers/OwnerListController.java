@@ -1,6 +1,6 @@
 package com.springboot.petclinic.controllers;
 
-import com.springboot.petclinic.services.map.OwnerServiceMap;
+import com.springboot.petclinic.services.map.OwnerMapService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class OwnerListController {
 
-    private final OwnerServiceMap ownerServiceMap;
+    private final OwnerMapService ownerMapService;
 
-    public OwnerListController(OwnerServiceMap ownerServiceMap) {
-        this.ownerServiceMap = ownerServiceMap;
+    public OwnerListController(OwnerMapService ownerMapService) {
+        this.ownerMapService = ownerMapService;
     }
 
     @RequestMapping({"","/index"})
     public String ownerList(Model model){
-        model.addAttribute("owners",ownerServiceMap.findAll());
+        model.addAttribute("owners", ownerMapService.findAll());
         return "owner/index";
     }
 }
